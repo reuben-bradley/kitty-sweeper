@@ -1,0 +1,45 @@
+<!doctype <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Kitty Sweeper</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    </head>
+    <body>
+        <h1>KittySweeper</h1>
+        <h2>A minesweeper clone, but with cats!</h2>
+        <div id="game-ui">
+            <section id="game-options">
+                <button type="button" id="newGameBtn">New Game</button>
+                <fieldset class="option-list">
+                    <legend>Difficulty</legend>
+                    <span><input type="radio" id="difficultyEasy" name="difficulty" value="easy" checked> <label for="difficultyEasy">Easy</label></span>
+                    <span><input type="radio" id="difficultyMedium" name="difficulty" value="medium"> <label for="difficultyMedium">Medium</label></span>
+                    <span><input type="radio" id="difficultyHard" name="difficulty" value="hard"> <label for="difficultyHard">Hard</label></span>
+                    <span><input type="radio" id="difficultyCustom" name="difficulty" value="custom"> <label for="difficultyCustom">Custom</label></span>
+                    <div class="inset">
+                        <div class="input-row"><label for="customRows">Height:</label> <input type="number" id="customRows" name="customRows" min="1" placeholder="9"></div>
+                        <div class="input-row"><label for="customCols">Width:</label> <input type="number" id="customCols" name="customCols" min="1" placeholder="9"></div>
+                        <div class="input-row"><label for="customKitties">Cats:</label> <input type="number" id="customKitties" name="customKitties" min="1" placeholder="10"></div>
+                    </div>
+                </fieldset>
+            </section>
+            <section id="game-grid"></section>
+        </div>
+        <div id="game-lost-popup">
+            <h2>You Lost!</h2>
+            <p>Oh no, you stepped on a kitty!</p>
+            <p>Play again?</p>
+            <p><button type="button" class="btn-affirmative">Yes</button><button type="button" class="btn-negative">No</button></p>
+        </div>
+        <div id="game-won-popup">
+            <h2>You won!</h2>
+            <p>Congratulations, you made it through and found all the kitties (without stepping on them)!</p>
+            <p>Play again?</p>
+            <p><button type="button" class="btn-affirmative">Yes</button><button type="button" class="btn-negative">No</button></p>
+        </div>
+        <script src="js/main.js"></script>
+    </body>
+</html>

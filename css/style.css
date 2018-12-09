@@ -1,0 +1,146 @@
+
+:root {
+    --col-count: 9;
+    --row-count: 9;
+}
+
+@keyframes slidedown {
+    0% {
+        transform: rotateX(-90deg);
+    }
+    100% {
+        transform: rotateX(0);
+    }
+}
+
+.slidedown {
+    animation-name: slidedown;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    transform-origin: top;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    padding: 15px;
+    background-color: #ddffdd;
+}
+
+button {
+    border: 2px solid #333333;
+    border-radius: 10px;
+    margin: 0 5px;
+    padding: 5px 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+#game-ui {
+    display: flex;
+}
+
+#newGameBtn {
+    display: block;
+    margin: 0 auto;
+}
+
+.option-list {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 1em;
+}
+
+.inset {
+    padding-left: 1.5em;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+}
+.input-row input[type="number"] {
+    width: 3em;
+}
+.input-row *:first-child {
+    margin-right: 0.5em;
+}
+
+#game-grid {
+    border: 3px solid #777777;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    height: calc(var(--row-count) * 34px);
+    margin: 0 auto;
+    width: calc(var(--col-count) * 34px);
+}
+
+.kitty-space {
+    background-color: #bbbbbb;
+    border-radius: 0;
+    border-width: 1px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-weight: bold;
+    height: 34px;
+    margin: 0;
+    padding: 0;
+    width: 34px;
+}
+.kitty-space.cleared {
+    background-color: #eeeeee;
+}
+.kitty-space.count1 {
+    color: #3377aa;
+}
+.kitty-space.count2 {
+    color: #cc9900;
+}
+.kitty-space.count3 {
+    color: #33aa33;
+}
+.kitty-space.count4 {
+    color: #dd5500;
+}
+.kitty-space.count5 {
+    color: #aaaa00;
+}
+.kitty-space.count6 {
+    color: #3333aa;
+}
+.kitty-space.count7 {
+    color: #77aa33;
+}
+.kitty-space.count8 {
+    color: #ff0000;
+}
+.kitty-space.hit {
+    background-color: #ff0000;
+}
+
+#game-lost-popup, #game-won-popup {
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    display: none;
+    left: calc(25% - 2em);
+    padding: 1em 2em;
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    width: 50%;
+}
+
+#game-lost-popup {
+    background-color: #ffcccc;
+    border-color: #aa0000;
+}
+
+#game-won-popup {
+    background-color: #ccffcc;
+    border-color: #00aa00;
+}
