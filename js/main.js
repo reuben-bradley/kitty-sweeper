@@ -1,7 +1,7 @@
 
-const FLAG_IMG_SRC = '/images/flag_red.png';
-const CAT_IMG_SRC = '/images/white-kitty.png';
-const CAT_INCORRECT_IMG_SRC = '/images/no-kitty.png';
+const FLAG_IMG_SRC = 'images/flag_red.png';
+const CAT_IMG_SRC = 'images/white-kitty.png';
+const CAT_INCORRECT_IMG_SRC = 'images/no-kitty.png';
 const DEFAULTS = {
     easy: {
         colCount: 9,
