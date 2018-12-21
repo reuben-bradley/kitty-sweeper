@@ -264,7 +264,7 @@ const GameBoard = {
     revealKitties: function () {
         // Reveal kitties that have not been flagged
         for ( let x = 0; x < this.kittyCount; x++ ) {
-            let cell = document.querySelector(`.kitty-space[data-cell-id="${this.kittyCells[x]}"]:not(.flagged)`);
+            let cell = document.querySelector(`.kitty-space[data-cell-id="${this.kittyCells[x]}"]:not(.flagged):not(.cleared)`);
             if ( !cell ) {
                 continue;
             }
