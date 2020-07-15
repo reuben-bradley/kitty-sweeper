@@ -215,6 +215,7 @@ const GameBoard = {
             kitty.setAttribute('src', CAT_IMG_SRC);
             buttonEl.appendChild(kitty);
             buttonEl.classList.add('hit');
+            buttonEl.classList.add('cleared');
             this.revealKitties();
             this.gameEnd('game-lost-popup');
         }
