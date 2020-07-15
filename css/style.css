@@ -1,7 +1,15 @@
-
+/**
+ * Variables and animations
+ */
 :root {
     --col-count: 9;
     --row-count: 9;
+    --space-size: 3.4rem;
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #777777;
+    --bg-color: #eae7d2;
+    --primary: #333333;
 }
 
 @keyframes slidedown {
@@ -17,45 +25,72 @@
     animation-name: slidedown;
     animation-duration: 1s;
     animation-timing-function: ease;
-    transform-origin: top;
+    transform-origin: center;
+}
+
+
+/**
+ * Basic elements and UI layout
+ */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    height: 100%;
 }
 
 body {
-    font-family: Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary);
+    font-family: 'Sora', sans-serif;
+    font-size: 1.6rem;
     margin: 0;
-    min-height: 100vh;
-    padding: 15px;
-    background-color: #ddffdd;
+    min-height: 100%;
+    padding: 0;
+    position: relative;
+}
+
+main {
+    padding: 0.5rem 1.5rem;
 }
 
 button {
-    border: 2px solid #333333;
-    border-radius: 10px;
-    margin: 0 5px;
-    padding: 5px 20px;
+    border: 2px solid var(--primary);
+    border-radius: 0.5rem;
+    margin: 0 0.5rem;
+    padding: 0.5rem 2rem;
 }
 
 h1, h2 {
+    font-weight: normal;
+    margin: 1.5rem 0;
     text-align: center;
 }
 
-#game-ui {
-    display: flex;
+h1 {
+    font-size: 2.4rem;
+}
+
+h2 {
+    font-size: 1.8rem;
 }
 
 #newGameBtn {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
 }
 
 .option-list {
     display: flex;
     flex-flow: column nowrap;
-    margin-top: 1em;
+    margin: 0 auto;
+    max-width: 22rem;
 }
 
 .inset {
-    padding-left: 1.5em;
+    padding-left: 1.5rem;
 }
 
 .input-row {
@@ -63,36 +98,91 @@ h1, h2 {
     justify-content: space-between;
 }
 .input-row input[type="number"] {
-    width: 3em;
+    width: 5rem;
 }
 .input-row *:first-child {
-    margin-right: 0.5em;
+    margin-right: 1rem;
 }
 
+#game-result-wrapper {
+    display: none;
+    left: 50%;
+    max-width: 50rem;
+    position: absolute;
+    top: 15%;
+    transform: translateX(-50%);
+    width: 100%
+}
+
+#game-lost-popup, #game-won-popup {
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 0.2rem;
+    display: none;
+    padding: 0 1.5rem 1.5rem;
+    text-align: center;
+}
+
+#game-lost-popup {
+    background-color: #ffcccc;
+    border-color: #aa0000;
+}
+
+#game-won-popup {
+    background-color: #ccffcc;
+    border-color: #00aa00;
+}
+
+@media screen and (min-width: 769px) {
+    main {
+        display: flex;
+    }
+
+    .group1 {
+        flex: 1;
+        order: 2;
+    }
+
+    #game-options {
+        order: 1;
+        margin-top: 10rem;
+    }
+}
+
+/**
+ * Game element styling
+ */
 #game-grid {
-    border: 3px solid #777777;
-    border-radius: 5px;
+    border: 0.3rem solid var(--gray);
+    border-radius: 0.5rem;
     display: flex;
     flex-flow: row wrap;
-    height: calc(var(--row-count) * 34px);
-    margin: 0 auto;
-    width: calc(var(--col-count) * 34px);
+    height: calc(var(--row-count) * var(--space-size) + 0.6rem);
+    margin: 0 auto 2rem;
+    width: calc(var(--col-count) * var(--space-size) + 0.6rem);
 }
 
 .kitty-space {
     background-color: #bbbbbb;
+    border-color: var(--black);
     border-radius: 0;
-    border-width: 1px;
+    border-style: outset;
+    border-width: 0.2rem;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: bold;
-    height: 34px;
+    height: var(--space-size);
     margin: 0;
     padding: 0;
-    width: 34px;
+    width: var(--space-size);
 }
 .kitty-space.cleared {
     background-color: #eeeeee;
+    border-style: solid;
+    border-width: 0.1rem;
+}
+.kitty-space.hit {
+    background-color: #ff0000;
 }
 .kitty-space.count1 {
     color: #3377aa;
@@ -117,30 +207,4 @@ h1, h2 {
 }
 .kitty-space.count8 {
     color: #ff0000;
-}
-.kitty-space.hit {
-    background-color: #ff0000;
-}
-
-#game-lost-popup, #game-won-popup {
-    border-radius: 20px;
-    border-style: solid;
-    border-width: 2px;
-    display: none;
-    left: calc(25% - 2em);
-    padding: 1em 2em;
-    position: absolute;
-    text-align: center;
-    top: 15%;
-    width: 50%;
-}
-
-#game-lost-popup {
-    background-color: #ffcccc;
-    border-color: #aa0000;
-}
-
-#game-won-popup {
-    background-color: #ccffcc;
-    border-color: #00aa00;
 }

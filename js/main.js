@@ -294,11 +294,13 @@ const GameBoard = {
     },
 
     showPopup: function ( popupEl ) {
+        document.getElementById('game-result-wrapper').style.display = 'block';
         popupEl.classList.add('slidedown');
         popupEl.style.display = 'block';
     },
 
     hidePopup: function ( popupEl ) {
+        document.getElementById('game-result-wrapper').style.display = 'none';
         popupEl.classList.remove('slidedown');
         popupEl.style.display = 'none';
     }
